@@ -3,11 +3,11 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="tests.FakeRestApi">
+      <class name="tests.RestExample">
         <methods>
           <include name="restExampleTest"/>
         </methods>
-      </class> <!-- tests.FakeRestApi -->
+      </class> <!-- tests.RestExample -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
