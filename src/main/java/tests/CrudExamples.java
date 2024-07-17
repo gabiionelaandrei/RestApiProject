@@ -104,7 +104,7 @@ public class CrudExamples {
 	}
 	
 	@Test (priority=4)
-	public void DeleteToDo() {
+	public void deleteToDo() {
 		Response response = given().delete("api/delete/" + id).then()
 				.statusCode(200)
 				.extract().response();
