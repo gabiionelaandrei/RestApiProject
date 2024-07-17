@@ -3,7 +3,6 @@ package tests;
 import org.json.simple.JSONObject;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
-
 import com.github.javafaker.Faker;
 import io.restassured.response.Response;
 import io.restassured.RestAssured;
@@ -11,7 +10,9 @@ import io.restassured.http.ContentType;
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.*;
 import static org.testng.Assert.assertEquals;
-import static org.hamcrest.MatcherAssert.assertThat;
+import static org.junit.Assert.assertThat;
+
+//import static org.hamcrest.MatcherAssert.assertThat;
 
 public class InstantWebTools {
 	
@@ -25,13 +26,13 @@ public class InstantWebTools {
 		
 		RestAssured.baseURI ="https://api.instantwebtools.net/";
 		requestBodyAirline =new JSONObject();
-		
+		requestBodyPassenger =new JSONObject();
 		//data for airline
 		requestBodyAirline.put("name", fake.company().name());
 		requestBodyAirline.put("country", fake.country().name());
 		requestBodyAirline.put("logo", fake.company().logo());
 		requestBodyAirline.put("slogan", fake.company().buzzword());
-		requestBodyAirline.put("head_quaters", fake.address());
+		requestBodyAirline.put("head_quaters", fake.country().name());
 		requestBodyAirline.put("website", fake.company().url());
 		requestBodyAirline.put("established", fake.number().numberBetween(1000, 3000));
 			
@@ -57,18 +58,15 @@ public class InstantWebTools {
 		requestBodyPassenger.put("trips", fake.number().numberBetween(0, 1000000));
 		requestBodyPassenger.put("airline", airlineId);
 	}
-	
-
-	
 			
 	
-	@Test(priority=2)
+	@Test(priority=2, dependsOnMethods ="createAirline")
 	public void createPassenger() {
 		
 	Response response =	
 		given().
 		contentType(ContentType.JSON).
-		body(requestBodyAirline.toJSONString()).
+		body(requestBodyPassenger.toJSONString()).
 		when(). 
 		post("v1/passenger/").
 		then().
@@ -77,22 +75,22 @@ public class InstantWebTools {
 		log().all().extract().response();
 		passengerId = response.jsonPath().getString("_id");
 		nrTrips = response.jsonPath().getInt("trips");
-		airlineName = response.jsonPath().getString("result[0].name");
+		airlineName = response.jsonPath().getString("airline.name[0]");
 
 	}
 	
-	@Test (priority=3)
+	@Test (priority=3, dependsOnMethods ="createPassenger")
 	public void getPassenger() {
 		Response response = given().get("v1/passenger/" + passengerId).then()
 				.statusCode(200)
 				.extract().response();
 		//hamcrest assert
 		assertThat(passengerId,is(equalTo(response.jsonPath().getString("_id"))));
-		assertThat(nrTrips,is(equalTo(response.jsonPath().getString("trips"))));
-		assertThat(airlineName,is(equalTo(response.jsonPath().getString("airline[0].name"))));
+		assertThat(nrTrips,is(equalTo(response.jsonPath().getInt("trips"))));
+		assertThat(airlineName,is(equalTo(response.jsonPath().getString("airline.name[0]"))));
 	}
 	
-	@Test (priority=4)
+	@Test (priority=4, dependsOnMethods ="createPassenger")
 	public void deletePassenger() {
 		Response response = given().delete("v1/passenger/" + passengerId).then()
 				.statusCode(200)

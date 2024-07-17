@@ -32,5 +32,43 @@ public class BaseComponent {
 		return response;
 				
 	}
+	
+	public static Response doGetRequest(String path) {
+		Response response = given().
+				contentType(ContentType.JSON).
+				when().
+				get(path).
+				then().
+				statusCode(200).
+				extract().response();
+		
+		return response;
+	}
+	
+	public static Response doPutRequest(String path, String reqBody, int statusCode) {
+		
+		Response response = given().
+				contentType(ContentType.JSON).
+				body(reqBody).
+				when().
+				put(path).
+				then().
+				statusCode(statusCode).
+				extract().response();
+		
+		return response;
+		
+	}
 
+	public static Response doDeleteRequest(String path) {
+		Response response = given().
+				contentType(ContentType.JSON).
+				when().
+				delete(path).
+				then().
+				statusCode(200).
+				log().all().extract().response();
+		
+		return response;
+	}
 }

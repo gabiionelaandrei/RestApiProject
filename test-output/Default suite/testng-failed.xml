@@ -3,15 +3,13 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="tests.InstantWebTools">
+      <class name="tests.BaseComponentExample">
         <methods>
-          <include name="deletePassenger"/>
-          <include name="createPassenger"/>
-          <include name="createAirline"/>
+          <include name="createNewUser"/>
+          <include name="UpdateUser"/>
           <include name="setup"/>
-          <include name="getPassenger"/>
         </methods>
-      </class> <!-- tests.InstantWebTools -->
+      </class> <!-- tests.BaseComponentExample -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

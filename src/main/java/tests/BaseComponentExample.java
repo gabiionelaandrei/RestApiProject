@@ -2,7 +2,9 @@ package tests;
 
 import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertTrue;
-
+import static org.hamcrest.Matchers.*;
+//import static org.hamcrest.MatcherAssert.assertThat;
+import static org.junit.Assert.assertThat;
 import org.testng.annotations.Test;
 
 import io.restassured.response.Response;
@@ -10,6 +12,7 @@ import testdata.DataBuilder;
 import utils.BaseComponent;
 
 public class BaseComponentExample extends BaseComponent {
+	String id, name, email, age, gender;
 	
 	@Test(priority =1)
 	public void createNewUser() {
@@ -17,7 +20,40 @@ public class BaseComponentExample extends BaseComponent {
 				("api/users", 
 				DataBuilder.buildUser().toJSONString(), 
 				201);
-		assertEquals(response.jsonPath().getString("success"),"true");
+		assertEquals(response.jsonPath().getString("success"),"true");	
+		assertThat(response.jsonPath().getString("success"),is ("true"));
+		id =response.jsonPath().getString("result._id");
+		name=response.jsonPath().getString("result.name");
+		email=response.jsonPath().getString("result.email");
+		gender=response.jsonPath().getString("result.gender");
+
+	}
+	@Test(priority =2, dependsOnMethods ="createNewUser")
+	public void readUser() {
+		
+		Response response = doGetRequest("api/users/" + id);
+		assertThat(response.jsonPath().getString("result._id"),is (equalTo(id)));
+		assertThat(response.jsonPath().getString("result.name"),is (equalTo(name)));
+		assertThat(response.jsonPath().getString("result.email"),is (equalTo(email)));
+		assertThat(response.jsonPath().getString("result.gender"),is (equalTo(gender)));
+	}
+	
+	@Test(priority =3, dependsOnMethods ="createNewUser")
+	public void UpdateUser() {
+		
+		Response response = doPutRequest
+				("api/users/" + id, 
+				DataBuilder.buildUpdatedUser().toJSONString(), 
+				200);	
+		assertThat(response.jsonPath().getString("success"),is ("true"));
+	}
+	
+	@Test(priority =4, dependsOnMethods ="createNewUser")
+	public void deleteUser() {
+		
+		Response response = doDeleteRequest("api/users/" + id);
+		assertThat(response.jsonPath().getString("msg"),is (equalTo("It has been deleted.")));
+
 	}
 	
 
