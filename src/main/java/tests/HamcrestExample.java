@@ -163,6 +163,7 @@ public class HamcrestExample {
 		assertThat(Integer.parseInt(orbitalPeriod), is(positiveNumber()));
 		//assertThat(-8, is(positiveNumber()));
 		assertThat(Integer.parseInt(orbitalPeriod), is(greaterThan(0)));
+		
 	}
 
 

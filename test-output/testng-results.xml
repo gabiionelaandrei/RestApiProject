@@ -1,33 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="4" passed="4" failed="0" skipped="0">
+<testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2024-07-22T09:20:06 EEST" name="Default suite" finished-at="2024-07-22T09:20:10 EEST" duration-ms="3818">
+  <suite started-at="2024-07-22T21:29:08 EEST" name="Default suite" finished-at="2024-07-22T21:29:09 EEST" duration-ms="895">
     <groups>
     </groups>
-    <test started-at="2024-07-22T09:20:06 EEST" name="Default test" finished-at="2024-07-22T09:20:10 EEST" duration-ms="3818">
-      <class name="tests.BaseComponentExample">
-        <test-method is-config="true" signature="setup()[pri:0, instance:tests.BaseComponentExample@4567f35d]" started-at="2024-07-22T09:20:06 EEST" name="setup" finished-at="2024-07-22T09:20:06 EEST" duration-ms="258" status="PASS">
+    <test started-at="2024-07-22T21:29:08 EEST" name="Default test" finished-at="2024-07-22T21:29:09 EEST" duration-ms="895">
+      <class name="tests.ParseJson">
+        <test-method signature="parseJson()[pri:0, instance:tests.ParseJson@2c767a52]" started-at="2024-07-22T21:29:08 EEST" name="parseJson" finished-at="2024-07-22T21:29:09 EEST" duration-ms="869" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- setup -->
-        <test-method signature="createNewUser()[pri:1, instance:tests.BaseComponentExample@4567f35d]" started-at="2024-07-22T09:20:06 EEST" name="createNewUser" finished-at="2024-07-22T09:20:08 EEST" duration-ms="1884" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- createNewUser -->
-        <test-method signature="readUser()[pri:2, instance:tests.BaseComponentExample@4567f35d]" started-at="2024-07-22T09:20:08 EEST" name="readUser" finished-at="2024-07-22T09:20:08 EEST" depends-on-methods="tests.BaseComponentExample.createNewUser" duration-ms="479" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- readUser -->
-        <test-method signature="updateUser()[pri:3, instance:tests.BaseComponentExample@4567f35d]" started-at="2024-07-22T09:20:08 EEST" name="updateUser" finished-at="2024-07-22T09:20:09 EEST" depends-on-methods="tests.BaseComponentExample.createNewUser" duration-ms="615" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- updateUser -->
-        <test-method signature="deleteUser()[pri:4, instance:tests.BaseComponentExample@4567f35d]" started-at="2024-07-22T09:20:09 EEST" name="deleteUser" finished-at="2024-07-22T09:20:10 EEST" depends-on-methods="tests.BaseComponentExample.createNewUser" duration-ms="554" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- deleteUser -->
-      </class> <!-- tests.BaseComponentExample -->
+        </test-method> <!-- parseJson -->
+      </class> <!-- tests.ParseJson -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

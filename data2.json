@@ -1,0 +1,20 @@
+[
+{
+    "name": "gabia",
+    "email": "a@db.com",
+    "age": "33",
+    "gender": "F"
+},
+{
+    "name": "gabib",
+    "email": "b@db.com",
+    "age": "34",
+    "gender": "M"
+},
+{
+    "name": "gabic",
+    "email": "c@db.com",
+    "age": "22",
+    "gender": "M"
+}
+]
