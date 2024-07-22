@@ -19,7 +19,7 @@ public class Swapi {
 	System.out.println(response.asPrettyString());
 	JsonPath json = response.jsonPath(); 
 	String film = json.getString("films[0]");
-	//Check that the ship was used in film: 2,1, 5 or 6 
+	//Check that the ship was used in film: 2, 5 or 6 
 	assertThat(film, either(is("https://swapi.dev/api/films/1/")).
 			or(is("https://swapi.dev/api/films/2/")).
 			or(is("https://swapi.dev/api/films/5/")).or(is("https://swapi.dev/api/films/6/")));
@@ -41,5 +41,9 @@ public class Swapi {
 	assertThat(crew,passengers, matchesPattern("[0-9]{3},[0-9]{3}"));
 	String length = json.getString("length");
 	assertThat(length.length(), lessThan(100));
+	
+	
+	
+	
 }
 }
