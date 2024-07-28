@@ -4,8 +4,6 @@ import org.junit.Test;
 
 import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
-import utils.NumberChecker;
-
 import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertNotEquals;
 
