@@ -1,0 +1,30 @@
+[
+    {
+      "name": "Alice",
+      "age": 30,
+      "addresses": [
+        {
+          "city": "Oradea",
+          "street": "calea Europei 24"
+        },
+        {
+          "city": "Pitesti",
+          "street": "Sperantei , parter"
+        }
+      ]
+    },
+    {
+      "name": "Bob",
+      "age": 25,
+      "addresses": [
+        {
+          "city": "Pitesti",
+          "street": "789 Grigore Bunescu"
+        },
+        {
+          "city": "Viena",
+          "street": "101 Parndorf"
+        }
+      ]
+    }
+  ]
