@@ -3,12 +3,11 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="tests.People4SchemaValidation">
+      <class name="tests.RestAssuredAuthExample">
         <methods>
-          <include name="setup"/>
-          <include name="testResponseSchema"/>
+          <include name="formAuth"/>
         </methods>
-      </class> <!-- tests.People4SchemaValidation -->
+      </class> <!-- tests.RestAssuredAuthExample -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
