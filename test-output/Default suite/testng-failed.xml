@@ -3,11 +3,12 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="tests.RestAssuredAuthExample">
+      <class name="tests.BaseRequestTest">
         <methods>
-          <include name="formAuth"/>
+          <include name="postToDoWithToken"/>
+          <include name="setup"/>
         </methods>
-      </class> <!-- tests.RestAssuredAuthExample -->
+      </class> <!-- tests.BaseRequestTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

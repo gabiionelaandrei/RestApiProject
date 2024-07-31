@@ -2,16 +2,16 @@
 <testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2024-07-29T21:09:47 EEST" name="Default suite" finished-at="2024-07-29T21:09:49 EEST" duration-ms="2291">
+  <suite started-at="2024-07-31T21:23:28 EEST" name="Default suite" finished-at="2024-07-31T21:23:30 EEST" duration-ms="2081">
     <groups>
     </groups>
-    <test started-at="2024-07-29T21:09:47 EEST" name="Default test" finished-at="2024-07-29T21:09:49 EEST" duration-ms="2291">
-      <class name="tests.RestAssuredAuthExample">
-        <test-method signature="bearerAuth()[pri:0, instance:tests.RestAssuredAuthExample@384ad17b]" started-at="2024-07-29T21:09:47 EEST" name="bearerAuth" finished-at="2024-07-29T21:09:49 EEST" duration-ms="2267" status="PASS">
+    <test started-at="2024-07-31T21:23:28 EEST" name="Default test" finished-at="2024-07-31T21:23:30 EEST" duration-ms="2081">
+      <class name="tests.RestAssuredXmlExample">
+        <test-method signature="testXMLResponse()[pri:0, instance:tests.RestAssuredXmlExample@123ef382]" started-at="2024-07-31T21:23:28 EEST" name="testXMLResponse" finished-at="2024-07-31T21:23:30 EEST" duration-ms="2056" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- bearerAuth -->
-      </class> <!-- tests.RestAssuredAuthExample -->
+        </test-method> <!-- testXMLResponse -->
+      </class> <!-- tests.RestAssuredXmlExample -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

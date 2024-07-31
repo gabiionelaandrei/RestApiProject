@@ -8,6 +8,7 @@ import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
 import io.restassured.specification.ResponseSpecification;
+import testdata.DataBuilder;
 
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.*;
@@ -25,10 +26,7 @@ public class BaseRequest {
 	public void setup() {
 		Response responseToken = given().
 				contentType(ContentType.JSON).
-				body("{\r\n"
-						+ "    \"user\": \"admin\",\r\n"
-						+ "    \"pass\": \"admin@123\"\r\n"
-						+ "}").
+				body(DataBuilder.buildToken().toJSONString()).
 				post("https://dev-todo-b369f85c9f07.herokuapp.com/api/login").then().extract().response();
 		token = responseToken.jsonPath().getString("token");
 		
@@ -57,6 +55,42 @@ public class BaseRequest {
 				body(body).
 				when().
 				post(path).
+				then().
+				spec(responseSpec).
+				extract().response();
+		return response;
+		
+	}
+	
+	public static Response doPatchRequest(String path, String body) {
+		Response response = given().
+				spec(requestSpec).
+				body(body).
+				when().
+				patch(path).
+				then().
+				spec(responseSpec).
+				extract().response();
+		return response;
+		
+	}
+	
+	public static Response doGetRequest(String path) {
+		Response response = given().
+				spec(requestSpec).
+				when().
+				get(path).
+				then().
+				spec(responseSpec).
+				extract().response();
+		return response;
+		
+	}
+	public static Response doDeleteRequest(String path) {
+		Response response = given().
+				spec(requestSpec).
+				when().
+				delete(path).
 				then().
 				spec(responseSpec).
 				extract().response();

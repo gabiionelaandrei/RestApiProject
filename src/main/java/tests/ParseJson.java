@@ -43,7 +43,7 @@ public class ParseJson {
 		JsonPath jsonPath = JsonPath.from(jsonFile);
 		System.out.println(jsonPath.getString("[0]")); //echivalent cu JSONObject employeeObject =(JSONObject) employeeList.get(0);
 		System.out.println(jsonPath.getString("[0].employee.company"));
-		
+		//comment for git
 		
 	}
 	
