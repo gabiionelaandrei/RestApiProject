@@ -18,7 +18,7 @@ public class SentFromFile extends BaseComponent {
 		JSONParser parser = new JSONParser();
 		Object obj = parser.parse(new FileReader("data2.json"));
 		JSONArray userList= (JSONArray) obj;
-		
+		System.out.println(userList);
 		for (Object user: userList) {
 			JSONObject userJson =(JSONObject) user;
 			Response resp =doPostRequest("api/users", userJson.toJSONString(), 201);
